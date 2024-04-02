@@ -1,6 +1,4 @@
-import json
 from selenium.webdriver import Remote
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from time import sleep
@@ -17,7 +15,6 @@ def extract_key_value_pair(driver, xpath):
 
 def scrape_company_data(url):
     try:
-        capabilities = DesiredCapabilities.CHROME.copy()
         options = Options()
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
@@ -27,7 +24,7 @@ def scrape_company_data(url):
         grid_url = "http://standalone-chrome-production-a491.up.railway.app:4444/wd/hub"
 
         # Create a RemoteWebDriver instance
-        driver = Remote(command_executor=grid_url, desired_capabilities=capabilities, options=options)
+        driver = Remote(command_executor=grid_url, options=options)
 
         driver.get(url)
 
