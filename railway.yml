@@ -1,1 +1,9 @@
 
+name: Selenium Script
+
+services:
+  web:
+    image: your-docker-username/your-image-name
+    command: ["python", "main.py"]
+    env:
+      - PORT: 4444
